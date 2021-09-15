@@ -8,31 +8,31 @@ function List({ todoList, removeTodoItem, toggleCheckStatus }) {
         <label htmlFor="toggle-all">Mark all as complete</label>
 
         <ul className="todo-list">
-          {todoList.map((todo, id) => {
+          {todoList.map((todo) => {
             const isVisible = todo.isCompleted ? "completed" : "uncompleted";
             return (
-              <li key={id} className={isVisible}>
+              <li key={todo.id} className={isVisible}>
                 <div className="view">
                   {todo.isCompleted ? (
                     <input
                       className="toggle"
                       type="checkbox"
-                      data-key={id}
-                      onClick={toggleCheckStatus}
-                      checked
+                      data-key={todo.id}
+                      onChange={toggleCheckStatus}
+                      value="checked"
                     />
                   ) : (
                     <input
                       className="toggle"
                       type="checkbox"
-                      data-key={id}
-                      onClick={toggleCheckStatus}
+                      data-key={todo.id}
+                      onChange={toggleCheckStatus}
                     />
                   )}
                   <label>{todo.todoText}</label>
                   <button
                     className="destroy"
-                    data-key={id}
+                    data-key={todo.id}
                     onClick={removeTodoItem}
                   ></button>
                 </div>
