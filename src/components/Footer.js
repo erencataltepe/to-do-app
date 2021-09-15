@@ -1,10 +1,12 @@
 import React from "react";
 
-function Footer() {
+function Footer({ todoList }) {
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>2</strong>
+        <strong>
+          {todoList.filter((todo) => todo.isCompleted !== true).length}
+        </strong>
         items left
       </span>
 

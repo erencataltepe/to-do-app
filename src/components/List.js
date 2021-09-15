@@ -32,7 +32,7 @@ function List({ todoList, removeTodoItem, toggleCheckStatus }) {
           })}
         </ul>
       </section>
-      <Footer />
+      <Footer todoList={todoList} />
     </>
   );
 }
