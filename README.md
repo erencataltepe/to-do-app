@@ -6,7 +6,7 @@ This project is made for Patika.dev Front End Path. It's a basic todo app with m
 
 ## Project Live Demo
 
-[Live Demo](www.google.com)
+[Live Demo](https://erencataltepe.github.io/to-do-app/)
 
 ### `npm start`
 
