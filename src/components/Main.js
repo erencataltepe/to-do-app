@@ -25,6 +25,14 @@ function Main() {
     setTodoList(newTodoList);
   };
 
+  const toggleCheckStatus = (e) => {
+    const toggleTodoId = e.target.dataset.key;
+    const newTodoList = [...todoList];
+    newTodoList[toggleTodoId].isCompleted =
+      !newTodoList[toggleTodoId].isCompleted;
+    setTodoList(newTodoList);
+  };
+
   useEffect(() => {
     setTodoText({ todoText: "", isCompleted: false });
   }, [todoList]);
@@ -36,7 +44,11 @@ function Main() {
         handleTodoText={handleTodoText}
         addNewItem={addNewItem}
       />
-      <List todoList={todoList} removeTodoItem={removeTodoItem} />
+      <List
+        todoList={todoList}
+        removeTodoItem={removeTodoItem}
+        toggleCheckStatus={toggleCheckStatus}
+      />
     </section>
   );
 }
