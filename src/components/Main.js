@@ -18,8 +18,14 @@ function Main() {
     setTodoList([...todoList, { todoText: todo.todoText, isCompleted: false }]);
   };
 
+  const removeTodoItem = (e) => {
+    const removeTodoId = e.target.dataset.key;
+    const newTodoList = [...todoList];
+    newTodoList.splice(removeTodoId, 1);
+    setTodoList(newTodoList);
+  };
+
   useEffect(() => {
-    console.log("List component updated");
     setTodoText({ todoText: "", isCompleted: false });
   }, [todoList]);
 
@@ -30,7 +36,7 @@ function Main() {
         handleTodoText={handleTodoText}
         addNewItem={addNewItem}
       />
-      <List todoList={todoList} />
+      <List todoList={todoList} removeTodoItem={removeTodoItem} />
     </section>
   );
 }

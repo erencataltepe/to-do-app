@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 
-function List({ todoList }) {
+function List({ todoList, removeTodoItem }) {
   return (
     <>
       <section className="main">
@@ -16,7 +16,11 @@ function List({ todoList }) {
                 <div className="view">
                   <input className="toggle" type="checkbox" />
                   <label>{todo.todoText}</label>
-                  <button className="destroy"></button>
+                  <button
+                    className="destroy"
+                    data-key={id}
+                    onClick={removeTodoItem}
+                  ></button>
                 </div>
               </li>
             );
