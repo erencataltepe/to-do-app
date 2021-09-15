@@ -1,6 +1,27 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 function Footer({ todoList, removeCompletedTodos, changeFilter }) {
+  const anchors = document.querySelectorAll("a");
+
+  const toggleButtonStyle = (name) => {
+    anchors.forEach((anchor) => {
+      console.log();
+      if (anchor.name === name) {
+        anchor.classList.add("selected");
+      } else {
+        anchor.classList.remove("selected");
+      }
+    });
+  };
+
+  anchors.forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleButtonStyle(e.target.name);
+    });
+  });
+
   return (
     <footer className="footer">
       <span className="todo-count">
