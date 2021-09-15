@@ -1,6 +1,6 @@
 import React from "react";
 
-function Footer({ todoList }) {
+function Footer({ todoList, removeCompletedTodos }) {
   return (
     <footer className="footer">
       <span className="todo-count">
@@ -24,7 +24,9 @@ function Footer({ todoList }) {
         </li>
       </ul>
 
-      <button className="clear-completed">Clear completed</button>
+      <button className="clear-completed" onClick={removeCompletedTodos}>
+        Clear completed
+      </button>
     </footer>
   );
 }

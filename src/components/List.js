@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 
 function List({ todoList, removeTodoItem, toggleCheckStatus }) {
   return (
@@ -14,12 +13,22 @@ function List({ todoList, removeTodoItem, toggleCheckStatus }) {
             return (
               <li key={id} className={isVisible}>
                 <div className="view">
-                  <input
-                    className="toggle"
-                    type="checkbox"
-                    data-key={id}
-                    onClick={toggleCheckStatus}
-                  />
+                  {todo.isCompleted ? (
+                    <input
+                      className="toggle"
+                      type="checkbox"
+                      data-key={id}
+                      onClick={toggleCheckStatus}
+                      checked
+                    />
+                  ) : (
+                    <input
+                      className="toggle"
+                      type="checkbox"
+                      data-key={id}
+                      onClick={toggleCheckStatus}
+                    />
+                  )}
                   <label>{todo.todoText}</label>
                   <button
                     className="destroy"
@@ -32,7 +41,6 @@ function List({ todoList, removeTodoItem, toggleCheckStatus }) {
           })}
         </ul>
       </section>
-      <Footer todoList={todoList} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import List from "./List";
+import Footer from "./Footer";
 
 function Main() {
   const [todo, setTodoText] = useState({ todoText: "", isCompleted: false });
@@ -33,6 +34,11 @@ function Main() {
     setTodoList(newTodoList);
   };
 
+  const removeCompletedTodos = () => {
+    const newTodoList = todoList.filter((todo) => !todo.isCompleted);
+    setTodoList(newTodoList);
+  };
+
   useEffect(() => {
     setTodoText({ todoText: "", isCompleted: false });
   }, [todoList]);
@@ -49,6 +55,7 @@ function Main() {
         removeTodoItem={removeTodoItem}
         toggleCheckStatus={toggleCheckStatus}
       />
+      <Footer todoList={todoList} removeCompletedTodos={removeCompletedTodos} />
     </section>
   );
 }
